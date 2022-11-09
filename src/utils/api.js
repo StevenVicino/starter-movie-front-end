@@ -1,5 +1,5 @@
 const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
+  process.env.REACT_APP_API_BASE_URL || "http://localhost:5001";
 
 /**
  * Defines the default headers for these functions to work with `json-server`
@@ -47,7 +47,7 @@ async function fetchJson(url, options, onCancel) {
 
 function populateReviews(signal) {
   return async (movie) => {
-    const url = `${API_BASE_URL}/movies/${movie.movie_id}/reviews`;
+    const url = `${API_BASE_URL}/movies/${movie.id}/reviews`;
     movie.reviews = await fetchJson(url, { headers, signal }, []);
     return movie;
   };
